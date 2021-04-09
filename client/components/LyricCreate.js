@@ -25,10 +25,7 @@ class LyricCreate extends Component {
     return (
       <form onSubmit={this.onSubmit.bind(this)}>
         <label>Add a Lyric</label>
-        <input
-          value={this.state.content}
-          onChange={(event) => this.setState({ content: event.target.value })}
-        />
+        <input value={this.state.content} onChange={(event) => this.setState({ content: event.target.value })} />
       </form>
     );
   }
@@ -39,7 +36,9 @@ const mutation = gql`
     addLyricToSong(content: $content, songId: $songId) {
       id
       lyrics {
+        id
         content
+        likes
       }
     }
   }
